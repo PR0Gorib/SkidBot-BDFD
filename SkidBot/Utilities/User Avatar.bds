@@ -1,0 +1,29 @@
+$c[
+--- Command Info ---
+Scripting Language: BDScript 2
+Trigger: !s avatar
+]
+
+$nomention
+$if[$isNumber[$message[1]]==true]
+$if[$userExists[$message[1]]==true]
+$title[Avatar of $username[$message[1]]#$discriminator[$message[1]]]
+$color[$random[0;16777216]]
+$image[$userAvatar[$message[1]]?size=1024]
+$addButton[yes;$userAvatar[$message[1]]?size=1024;Download Avatar;link;no] 
+$endif
+$endif
+$if[$isNumber[$message[1]]==false]
+$if[$userExists[$mentioned[1;yes]]==true]
+$title[Avatar of $username[$mentioned[1;yes]]#$discriminator[$mentioned[1;yes]]]
+$color[$random[0;16777216]]
+$image[$userAvatar[$mentioned[1;yes]]?size=1024]
+$addButton[yes;$userAvatar[$mentioned[1;yes]]?size=1024;Download Avatar;link;no] 
+$endif
+$endif
+$if[$isNumber[$message[1]]==true]
+$if[$userExists[$message[1]]==false]
+$title[$username. The data provided (The ID) is not valid]
+$color[$random[0;16777216]]
+$endif
+$endif

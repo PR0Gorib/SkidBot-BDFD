@@ -1,0 +1,45 @@
+$c[
+--- Command Info ---
+Ban a user.
+Scripting Language: BDScript 2
+Trigger: !s ban
+]
+
+-- First Command --
+
+$nomention
+$if[$isBot[$mentioned[1]]==false]
+$dm[$mentioned[1]]
+$authorIcon[$userAvatar[$botID]]
+$author[You have been banned from $serverName[$guildID]]
+$description[]
+$addField[Reason;$noMentionMessage]
+$footer[Banned by $username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$color[ff2050]
+$endif
+
+-- Second Command --
+
+$nomention
+$onlyPerms[ban;❌ You don't have permission to use this command!]
+$onlyIf[$mentioned[1]!=;❌ You must mention a user to ban.]
+$deletecommand
+$cooldown[5s;🕐 Please wait 5 seconds before using this again.]
+
+$ban[$mentioned[1];$noMentionMessage]
+$thumbnail[$userAvatar[$mentioned[1]]]
+$title[🚫 $username[$mentioned[1]] has been banned]
+$description[
+Successfully banned <@$mentioned[1]> from **$serverName[$guildID]**
+
+**• __Reason__**
+$noMentionMessage
+]
+$footer[Banned by $username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$color[FF0000]
+
+$suppressErrors[❌ Something went wrong. Make sure you mention a valid user and try again.]

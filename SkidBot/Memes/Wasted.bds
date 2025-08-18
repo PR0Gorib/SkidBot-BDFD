@@ -1,0 +1,23 @@
+$c[
+--- Command Info ---
+Wasted Meme Overlay
+Scripting Language: BDScript 2
+Trigger: !s wasted
+]
+
+$nomention
+$deletecommand
+$image[https://some-random-api.com/canvas/overlay/wasted?avatar=$userAvatar[$mentioned[1;yes]]]
+
+$title[💀 $username[$mentioned[1;yes]] just got WASTED!]
+$color[2C2F33]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$cooldown[3s;🕒 Please wait %time% before using this command again.]
+$suppressErrors[❌ Failed to generate the image. Try again later.]
+$addTimestamp
+
+$if[$mentioned[1]==$authorID]
+Are you sure about yeeting yourself?
+$endif

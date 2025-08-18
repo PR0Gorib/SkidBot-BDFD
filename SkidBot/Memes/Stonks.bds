@@ -1,0 +1,17 @@
+$c[
+--- Command Info ---
+Stonks Meme
+Scripting Language: BDScript 2
+Trigger: !s stonks
+]
+
+$nomention
+$title[]
+$deletecommand
+$color[$random[0;16777216]
+$image[https://vacefron.nl/api/stonks?user=$userAvatar[$mentioned[<;yes]]?size=4096]
+$cooldown[3s;Please wait %time% before using this command again.]
+$suppressErrors[Please try again later.]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp

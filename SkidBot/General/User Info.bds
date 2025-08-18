@@ -1,0 +1,21 @@
+$c[
+--- Command Info ---
+User details.
+Scripting Language: BDScript
+Trigger: !s userinfo
+]
+
+$nomention
+$author[User Information]
+$authorIcon[$userAvatar[$botID]]
+$thumbnail[$userAvatar[$mentioned[1;yes]]]
+$addField[Username;`$username[$mentioned[1;yes]]#$discriminator[$mentioned[1;yes]]`]
+$addField[ID;`$mentioned[1;yes]`]
+$addField[Registered;`$userJoinedDiscord[$mentioned[1;yes];January 02 (Monday), 2006 at 3:04]`]
+$addField[Joined;`$userJoined[$mentioned[1;yes];January 02 (Monday), 2006 at 3:04]`]
+$addField[Highest Role;<@&$highestRole[$mentioned[1;yes]]>]
+
+$color[$getRoleColor[$highestRole[$mentioned[1;yes]]]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp

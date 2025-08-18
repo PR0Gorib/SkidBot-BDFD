@@ -1,0 +1,45 @@
+$c[
+--- Command Info ---
+Server details.
+Scripting Language: BDScript 2
+Trigger: !s serverinfo
+]
+
+$nomention
+$if[$isSlash==false]
+$author[Server Information]
+$authorIcon[$userAvatar[$botID]]
+$thumbnail[$serverIcon]
+$addField[Server Name;$serverName[$guildID];yes]
+$addField[Server ID;$guildID;yes]
+$addField[Region;$serverRegion;yes]
+$addField[Owner;<@$serverOwner>;yes]
+$addField[Creation Date; <t:$calculate[($guildID / 4194304 + 1420070400000) / 1000]>;yes]
+$addField[Members;$membersCount;yes]
+$addField[Channels;$channelCount;yes]
+$addField[Roles;$roleCount;yes]
+$addField[Security;$serverVerificationLvl;yes]
+$addField[Emotes;$emoteCount;yes]
+$color[2C2F33]
+$suppressErrors[:x: Something went wrong.]
+$footer[$username#$discriminator[$authorID]]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$elseif[$isSlash==true]
+$author[Server Information: $serverName[$guildID]]
+$authorIcon[$serverIcon]
+$thumbnail[$serverIcon]
+$addField[Server ID;$guildID;yes]
+$addField[Region;$serverRegion;yes]
+$addField[Owner;<@$serverOwner>;yes]
+$addField[Creation Date; <t:$calculate[($guildID / 4194304 + 1420070400000) / 1000]>;yes]
+$addField[Members;$membersCount;yes]
+$addField[Channels;$channelCount;yes]
+$addField[Roles;$roleCount;yes]
+$addField[Security;$serverVerificationLvl;yes]
+$addField[Emotes;$emoteCount;yes]
+$color[2C2F33]
+$footer[$username#$discriminator[$authorID]]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$endif

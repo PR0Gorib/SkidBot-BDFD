@@ -1,0 +1,30 @@
+$c[
+--- Command Info ---
+Bot Information
+Scripting Language: BDScript
+Trigger: !s botinfo
+]
+
+$nomention
+$author[SkidBot Info]
+$authorIcon[$userAvatar[$botID]]
+$thumbnail[$userAvatar[$botID]]
+$botTyping
+
+$addField[Developer;PR0G#6481]
+$addField[Version (Stable);N/A]
+$addField[Version Release;N/A]
+$addField[Created;<t:$calculate[($botID / 4194304 + 1420070400000) / 1000]> (<t:$calculate[($botID / 4194304 + 1420070400000) / 1000]:R>);no]
+$addField[Servers;$numberSeparator[$serverCount];no]
+$addField[Users;$numberSeparator[$allMembersCount];no]
+$addField[Commands;$commandsCount]
+$addField[Node;$botNode;yes]
+$addField[Uptime;$uptime]
+$addField[Ping;$replaceText[$ping;0;1;1] ms;no]
+
+$addButton[no;$getBotInvite;Invite Link;link;no;]
+$addButton[yes;https://github.com/PR0Gorib/SkidBot;Support;link;no]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$color[$getRoleColor[$highestRole[$authorID]]]

@@ -13,7 +13,18 @@ SkidBot is an **NSFW-focused Discord bot** made using **Bot Designer for Discord
 ---
 
 ## ⚠️ Disclaimer
-This bot contains **18+ content**. Use only in NSFW-allowed servers and by users 18+.  
+This bot contains **18+ content**. Use only in NSFW-allowed servers and by users 18+. If you're not familiar with APIs, do not mess with the code — it may break the bot or leak sensitive data.
+
+---
+
+## 📝 Note 
+Some commands in this bot are from the BDFD community.
+I started this project in 2022, but it was never fully finished, so it contains some community-made commands from that time.
+
+In 2025, I returned to the project, made improvements, fixed many issues, and added a new NSFW system.
+Since I didn’t have time to fully complete it, I'm now making it available for anyone to use
+
+If anyone from the BDFD community recognizes their code in this project, please reach out — I’ll be happy to give you proper credit.  
 
 ---
 

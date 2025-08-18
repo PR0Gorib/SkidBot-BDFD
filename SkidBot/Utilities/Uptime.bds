@@ -1,0 +1,23 @@
+$c[
+--- Command Info ---
+Bot uptime check
+Scripting Language: 1st cmnd - BDScript 2, 2nd cmnd - BDScript 
+Trigger: !s uptime
+]
+
+-- First Command --
+
+$nomention
+$author[My Uptime]
+$authorIcon[$userAvatar[$botID]]
+$description[I've been online for $uptime]
+$addTimestamp
+$color[ff2050]
+$thumbnail[$serverIcon]
+$dm[$authorID]
+
+-- Second Command --
+
+$nomention
+**$username** Check Your DM.
+$reply

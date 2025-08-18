@@ -1,0 +1,30 @@
+$c[
+--- Command Info ---
+Get a random or useless fact
+Scripting Language: BDScript 2
+Trigger: !s fact
+]
+
+$nomention
+$var[api;$randomText[
+https://api.popcat.xyz/fact;
+https://nekos.life/api/v2/fact;
+https://uselessfacts.jsph.pl/api/v2/facts/random?language=en
+]]
+$httpGet[$var[api]]
+
+$if[$httpResult[fact]!=]
+$title[$replaceText[$replaceText[$var[api];https://api.popcat.xyz/fact;💡 Random Fact];https://nekos.life/api/v2/fact;🤯 Did you know?]]
+$description[$httpResult[fact]]
+$color[#00bcd4]
+
+$elseif[$httpResult[text]!=]
+$title[🧠 Useless Fact]
+$description[$httpResult[text]]
+$color[#FFC107]
+$endif
+
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$suppressErrors

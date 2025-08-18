@@ -1,0 +1,20 @@
+$c[
+--- Command Info ---
+Get lyrics of a song 
+Scripting Language: BDScript 2
+Trigger: !s lyrics 
+]
+
+$nomention
+$deletecommand
+$title[$httpResult[title]]
+$author[$httpResult[author]]
+$embeddedURL[$httpResult[links;genius]]
+$description[$httpResult[lyrics]$httpResult[error]]
+$color[6be7ff]
+$thumbnail[$httpResult[thumbnail;genius]]
+$footer[Lyrics Requested by $username]
+$footerIcon[$authorAvatar]
+$sendMessage[Searching for `$message`;no]
+$argsCheck[>1;Name a Song? (not link)]
+$httpGet[https://api.popcat.xyz/v2/lyrics?song=$replaceText[$message; ;+;-1]]

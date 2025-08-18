@@ -5,10 +5,11 @@ SkidBot is an **NSFW-focused Discord bot** made using **Bot Designer for Discord
 ---
 
 ## 🔥 Main Features
-1. 🔞 NSFW commands  
+1. 🔞 NSFW commands (various categories) 
 2. 🎭 Anime roleplay gifs (hug, slap, kiss, etc.)  
-3. 😂 Memes & fun commands  
+3. 😂 Memes & fun commands (random memes, jokes and more)
 4. 🔨 Basic moderation (some commands may not work)  
+5. 🎧 Music System (planned but never finished due to limitations)
 
 ---
 
@@ -18,11 +19,10 @@ This bot contains **18+ content**. Use only in NSFW-allowed servers and by users
 ---
 
 ## 📝 Note 
-Some commands in this bot are from the BDFD community.
 I started this project in 2022, but it was never fully finished, so it contains some community-made commands from that time.
 
 In 2025, I returned to the project, made improvements, fixed many issues, and added a new NSFW system.
-Since I didn’t have time to fully complete it, I'm now making it available for anyone to use
+Since I didn’t have time to fully complete it, I'm now making it available for anyone to use for free
 
 If anyone from the BDFD community recognizes their code in this project, please reach out — I’ll be happy to give you proper credit.  
 

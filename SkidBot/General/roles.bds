@@ -1,0 +1,19 @@
+$c[
+--- Command Info ---
+List user roles
+Scripting Language: BDScript 2
+Trigger: !s roles
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Please mention a user to view their roles.]
+
+$title[Roles of $username[$mentioned[1]]]
+$description[
+$replaceText[$userRoles[$mentioned[1]];, ;\n]
+]
+$color[$getRoleColor[$highestRole[$authorID]]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$suppressErrors[❌ Something went wrong. Try using: `!s roles @user`]

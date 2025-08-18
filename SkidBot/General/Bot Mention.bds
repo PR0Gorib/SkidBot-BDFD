@@ -1,0 +1,14 @@
+$c[
+--- Command Info ---
+This cmnd needs 2 triggers (PC & Mobile). create 2 commands with 2 triggers 
+Scripting Language: BDScript 2
+Trigger: PC - <@!YOUR_BOT_ID_HERE> & Mobile - <@YOUR_BOT_ID_HERE>
+]
+
+$nomention
+$title[Hello $username]
+$description[
+**› My prefix is** `!s`
+**› To get started type** `!s help`
+**› Cheers! 🍻 <@$botID>**]
+$color[$random[0;16777216]]

@@ -1,0 +1,21 @@
+$c[
+--- Command Info ---
+Make an Announcement
+Scripting Language: BDScript 2
+Trigger: !s announcement
+]
+
+$nomention $suppressErrors[:x: An Error Occurred!. Pls contact the bot owner,]
+$useChannel[$mentionedChannels[1;yes]]
+$description[$noMentionMessage]
+$addCmdReactions[:white_check_mark:]
+$onlyAdmin[:x: **:x: You don't have that permission!**]
+$color[6be7ff]
+$onlyIf[$mentionedChannels[1;yes]!=;:x: Please mention a channel!]
+$title[📣 New Announcement!]
+$footerIcon[$authorAvatar]
+$footer[Announcement by $username]
+$addTimestamp
+$argsCheck[>1;`Usage: !s announce <announcement here>`]
+$pinMessage 
+$deletecommand

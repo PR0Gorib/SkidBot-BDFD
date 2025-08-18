@@ -1,0 +1,30 @@
+$c[
+--- Command Info ---
+Get a random meme from Reddit
+Scripting Language: BDScript 2
+Trigger: !s meme
+]
+
+$nomention
+$httpGet[https://api.popcat.xyz/v2/meme]
+
+$if[$httpResult[error]!=true]
+$title[$httpResult[message;title]]
+$description[
+**👤 OP:** $httpResult[message;author]
+**📌 Subreddit:** r/$httpResult[message;subreddit]
+]
+$image[$httpResult[message;content;image]]
+$addButton[no;$httpResult[message;link];Link;link;no] 
+$color[#1b2838]
+$footer[⬆️ Upvotes: $httpResult[message;misc;upvotes]]
+$footerIcon[$authorAvatar]
+$addTimestamp
+
+$else
+$title[❌ Failed to fetch meme]
+$description[Something went wrong. Please try again later.]
+$color[#ff0000]
+$endif
+
+$suppressErrors[⚠️ An unexpected error occurred.]

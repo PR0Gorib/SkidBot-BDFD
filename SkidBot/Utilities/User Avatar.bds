@@ -1,5 +1,6 @@
 $c[
 --- Command Info ---
+View & download user avatar 
 Scripting Language: BDScript 2
 Trigger: !s avatar
 ]
@@ -26,4 +27,5 @@ $if[$userExists[$message[1]]==false]
 $title[$username. The data provided (The ID) is not valid]
 $color[$random[0;16777216]]
 $endif
+
 $endif

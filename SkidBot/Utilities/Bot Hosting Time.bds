@@ -1,0 +1,18 @@
+$c[
+--- Command Info ---
+DMs Bot Hosting Time
+Scripting Language: BDScript 2
+Trigger: !s bhost
+]
+
+$nomention
+$author[Bot Hosting Time]
+$authorIcon[$userAvatar[$botID]]
+$if[$sub[$hostingExpireTime[yes];$getTimestamp]<=7200]
+$dm[645669632161742879]
+$description[My Bot Hosting Time Expires in $divide[$sub[$hostingExpireTime[yes];$getTimestamp];60] Minutes]
+$addTimestamp
+$color[ff2050]
+$thumbnail[$serverIcon]
+$else
+$endif

@@ -1,0 +1,25 @@
+$c[
+--- Command Info ---
+NSFW Help
+Scripting Language: BDScript 2
+Trigger: !s nsfw help
+]
+
+$nomention
+$onlyIf[$isNSFW[$channelID]==true;❌ This command can only be used in NSFW channels.]
+
+$title[🔞 NSFW Categories]
+$description[
+Here are the available NSFW categories you can use:]
+
+$addField[👺 Hentai;`waifu, hentai, hmidriff, hass, hneko, h3some, hkitsune, hanal, hblowjob, hboobs, hthigh, paizuri, yuri, trap, tentacle`]
+$addField[🔞 Porn;`4k, ass, anal, boobs, blowjob, bdsm, pussy, pgif, gonewild, milf, thigh, feet`]
+$addField[🔞 Others;`fuck` (to f--k someone 💀), `random`
+
+Use them with: !s nsfw `<category>`
+Example: **!s nsfw hentai**
+]
+$color[#ff0069]
+$footer[$username]
+$footerIcon[https://cdn.discordapp.com/emojis/1374116193715097775.gif?size=48&animated=true&name=GG_peaceout]
+$addTimestamp

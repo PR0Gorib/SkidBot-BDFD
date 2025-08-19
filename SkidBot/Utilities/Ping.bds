@@ -1,0 +1,9 @@
+$c[
+--- Command Info ---
+Returns with bot's ping 
+Scripting Language: BDScript
+Triggers: !s ping
+]
+
+$nomention
+🏓 Pong! `$ping ms`

@@ -1,0 +1,60 @@
+$c[
+--- Command Info ---
+Simple AFK system 
+Scripting Language: BDScript 2
+Triggers: 1st cmnd - !s afk, 2nd cmnd - $awaitedCommand[$message;]
+Variables: afk Value=no
+]
+
+-- First Command --
+
+$nomention
+
+$if[$checkContains[$toLowercase[$getUserVar[afk]];yes]==true]
+$description[
+**$username[$authorID]** You're back! your AFK mode has been removed
+You've been AFK since <t:$replaceText[$replaceText[$getUserVar[afk];no ;;1];yes ;;1]:R>
+]
+$color[$random[0;16777216]]
+$setUserVar[afk;no]
+$else
+
+$description[
+**$username[$authorID]** You're now on AFK mode!
+Reason: $replaceText[$replaceText[%%$checkCondition[$message==]%%;%%true%%;Not provided;1];%%false%%;$message;1]
+]
+$color[$random[0;16777216]]
+
+$setUserVar[afk;yes $getTimestamp]
+$awaitFunc[afk;$authorID]
+$endif
+
+$if[$and[$rolePosition[$highestRole[$botID]]<$rolePosition[$highestRole[$authorID]];$authorID!=$serverOwner]==true]
+$changeUsernameWithID[$authorID;AFK | $username[$authorID]]
+$onlyIf[$checkContains[$toLowercase[$getUserVar[afk]];no]==true;]
+$onlyIf[$checkUserPerms[$botID;managenicknames]==true;]
+$onlyIf[$charCount[$nickname[$authorID]]<33;Your nickname is too long to change into AFK!]
+$endif
+
+$varExistError[afk;Hey! create the variable "afk" with value "no", if you have it created already and it still returning this error, then make sure it has no spaces on it, and try re-adding the variable (delete it and add it again), the variable name must be lowercase]
+
+-- Second Command --
+
+$nomention
+$if[$checkContains[$toLowercase[$getUserVar[afk]];no]==true]
+
+$else
+$description[
+**$username[$authorID]** You're back! your AFK mode has been removed
+You've been AFK since <t:$replaceText[$replaceText[$getUserVar[afk];no ;;1];yes ;;1]:R>
+]
+$color[$random[0;16777216]]
+
+$setUserVar[afk;no]
+$endif
+
+$if[$and[$rolePosition[$highestRole[$botID]]<$rolePosition[$highestRole[$authorID]];$authorID!=$serverOwner]==true]
+$changeUsernameWithID[$authorID;$username[$authorID]]
+$onlyIf[$checkUserPerms[$botID;managenicknames]==true;]
+$onlyIf[$checkContains[$toLowercase[$getUserVar[afk]];yes]==true;]
+$endif

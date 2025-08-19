@@ -1,0 +1,169 @@
+$c[
+--- Command Info ---
+Show bot commands
+Scripting Language: BDScript 2
+Triggers: 1st cmnd - !s help , 2nd cmnd - $onInteraction[General] , 3rd cmnd - $onInteraction[Moderation] , 4th cmnd - $onInteraction[Memes] , 5th cmnd - $onInteraction[Anime] , 6th cmnd - $onInteraction[Others]
+]
+
+-- First Command -- 
+
+$nomention
+$addButton[no;General;General;primary;no;🤖]
+$addButton[no;Moderation;Moderation;secondary;no;⚙️]
+$addButton[no;Memes;Memes;success;no;😂]
+$addButton[no;Anime;Anime;danger;no;🌸]
+$addButton[no;Others;Others/Misc;secondary;no;🌐]
+
+$title[SkidBot Commands]
+$thumbnail[$userAvatar[$botID]]
+$description[‼️ Bot under development ‼️
+
+Click one of the buttons below to view a command category.
+
+🎧 Music 
+Type `!s music help` for more info.
+
+:underage: ~~NSFW~~
+Type `!s nsfw help` for more info.]
+
+**Developer Note:**
+``Please keep in mind that the bot is still in it's development phase, so some commands might not work as expected yet. I'm actively working on improvements—fixing the slow responses may take a few more days. Thanks for your patience!``
+
+
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$color[$getRoleColor[$highestRole[$authorID]]]
+
+-- Second Command --
+
+$nomention 
+$description[🤖 **General Commands**
+
+* `!s help` — Show bot commands.
+* `!s info` — Bot information.
+* `!s serverinfo` — Server details.
+* `!s userinfo <@user>` — User details.
+* `!s avatar <@user>` — View user avatar.
+* `!s announcement <message>` — Make an announcement. 
+* `!s roles <@user>` — List user roles.
+
+__Command Alias__
+
+`announce` for announcement
+]
+
+$color[#00BFFF]
+$ephemeral
+
+-- Third Command -- 
+
+$nomention
+$color[#FF4500]
+$description[⚙️ **Moderation Commands**
+
+* `!s userperms <@user>` — View user permissions.
+* `!s addrole <@user>` - Give user a role.
+* `!s mute <@user> (duration)` — Mute a user. 
+* `!s unmute <@user>` — Unmute a user. ⚠️
+* `!s ban <@user> (reason)` — Ban a user.
+* `!s unban <@user/ID>` — Unban a user.
+* `!s kick <@user> (reason)` — Kick a user.
+* `!s warn <@user> (reason)` — Warn a user. ⚠️
+* `!s warnings <@user>` — Show warnings for the user. ⚠️
+* `!s clearwarn <@user> (number/all)` — Clear warnings for the user. ⚠️
+* `!s lock #channel` — Lock channel messages. 
+* `!s unlock #channel` — Unlock channel messages. 
+* `!s deletechannel #channel-name` - Delete specified channel.
+* `!s purge (amount) <@user>` - Bulk delete messages.
+
+__Command Alias__
+
+`clear` for purge
+
+⚠️ Commands marked with this don’t work or aren’t added yet.
+]
+$ephemeral
+
+-- Fourth Command --
+
+$nomention 
+$description[😂 **Meme Commands**
+
+* `!s meme` — Get a random meme.
+* `!s wasted <@user>` — GTA "Wasted" effect on user avatar.
+* `!s pikachu <text>` — Surprised Pikachu meme with custom caption.
+* `!s sus <@user>` — Among Us ejected with username.
+* `!s stonks <@user>` — Add stonks meme on avatar.
+* `!s npc <text1-text2>` — Make a NPC Meme. 
+* `!s comrade <@user>` - Communist Avatar Overlay.
+* `!s drip <@user>` - Dripped out Avatar Overlay.
+* `!s drake <text1-text2>` — Drake Hotline Bling Meme Template.  
+* `!s sadcat <text>` — Sad cat meme with custom caption.  
+* `!s pooh <text1-text2>` – Tuxedo Winnie The Pooh Meme Template.
+* `!s howgay <@user>` – "How Gay?" meter with avatar overlay.
+* `!s alert <text>` – iPhone alert notification.
+
+⚠️ Commands marked with this don’t work or aren’t added yet.
+]
+
+$color[#FFD700]
+$ephemeral
+
+-- Fifth Command -- 
+
+$nomention
+$description[🌸 **Anime Commands**
+
+* `!s waifu` – Get your random waifu.
+* `!s baka <@user>` — Call someone "baka".
+* `!s bite <@user>` — Bite a user.
+* `!s cuddle <@user>` — Cuddle with a user.
+* `!s feed <@user>` — Feed someone.
+* `!s handshake <@user>` — Offer a handshake.
+* `!s highfive <@user>` — Give a high five!
+* `!s hug <@user>` — Send a hug.
+* `!s knock <@user>` — Kick out someone.
+* `!s kill <@user>` — Playfully "kill" the user. 
+* `!s punch <@user>`— Punch a user.
+* `!s pat <@user>`— Pat their head or back. 
+* `!s poke <@user>`— Poke another user. 
+* `!s slap <@user>`​— Slap playfully!
+* `!s shoot <@user>`– Shoot at someone.
+* `!s tickle <@user>` – Tickle a user.
+* `!s yeet <@user>` – Yeet them away！
+* `!s random` - Get a random SFW image.
+]
+
+$color[#BA55D3]
+$ephemeral
+
+-- Sixth Command -- 
+
+$nomention
+$description[🌐 **Others / Misc Commands**
+
+* `!s afk <reason>` — Set your AFK status. :warning:  
+* `!s instagram <username>` — Fetch Instagram profile info. :warning:  
+* `!s github <username>` — Show GitHub user or repo details.  
+* `!s define <word>` — Look up the definition of a word. :warning:  
+* `!s yt <username>` — Fetch YouTube channel info. :warning:  
+* `!s ytvid <link>` — Fetch YouTube video details. :warning:  
+* `!s screenshot <url>` — Capture a screenshot of any website.  
+* `!s steam <game>` — Get Steam game information.  
+* `!s imdb <movie>` — Get details about any movie or series.  
+* `!s gg` — Play a "Guess the Number" game.
+
+**🔁 Randoms List**
+* `!s animal` — Get a random animal fact and image.  
+* `!s fact` — Get a random or useless fact.  
+* `!s advice <@user>` — Get a random piece of advice (mention optional).  
+* `!s kanye` — Get a *definitely real* Kanye West quote.  
+* `!s joke` — Get a random joke.
+
+__Command Aliases__
+`ss` for screenshot
+
+⚠️ Commands marked with this don’t work or aren’t added yet.]
+$color[#43A047]
+$ephemeral 

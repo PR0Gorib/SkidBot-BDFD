@@ -1,0 +1,31 @@
+$c[
+--- Command Info ---
+Scripting Language: BDScript 2
+Trigger: add your prefix here
+]
+
+$nomention
+$thumbnail[$userAvatar[$botID]]
+$botTyping
+$author[Commands]
+$authorIcon[$userAvatar[$botID]]
+$description[‼️ Bot under development ‼️
+
+To use a Command type `!s <command>`]
+
+$addField[🤖 General;`help, info, serverinfo, userinfo, avatar, announce, roles`]
+$addField[⚙️ Moderation;`userperms, mute, unmute, ban, unban, kick, warn, warnings, clearwarn, lock, unlock, deletechannel, purge (clear)`]
+$addField[😂 Memes;`meme, wasted, pikachu, sus, stonks, npc, car, drake, sadcat, pooh, howgay, alert`]
+$addField[🌸 Anime;`baka, bite, cuddle, feed, handshake, highfive, hug, knock, kill, punch, pat, poke, slap, shoot, tickle, waifu, yeet`]
+$addField[🎧 Music (Coming Soon);`play, pause, resume, stop, lyrics`]
+$addField[🔞 NSFW ;Type `!s nsfw help` for more info.]
+$addField[👾 Developer Only (Will be removed on final release);`serverlist, hostime`]
+$addField[🌐 Others;`afk, fact, instagram, github, define, joke, yt, ytvid, screenshot`]
+
+**Developer Note:**
+``Please note that the bot is still in its testing phase, so some commands might not work as expected yet. I'm actively working on improvements—fixing the slow responses may take a few more days. Thanks for your patience!``
+
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$color[$getRoleColor[$highestRole[$authorID]]]

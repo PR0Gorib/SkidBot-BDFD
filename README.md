@@ -1,6 +1,6 @@
 # SkidBot
 
-SkidBot is an **NSFW-focused Discord bot** made using **Bot Designer for Discord (BDFD)** with some extra basic features.
+SkidBot is an **NSFW-focused Discord bot** made using **Bot Designer for Discord (BDFD)** with some extra basic bot features.
 
 ---
 
@@ -14,17 +14,16 @@ SkidBot is an **NSFW-focused Discord bot** made using **Bot Designer for Discord
 ---
 
 ## ⚠️ Disclaimer
-This bot contains **18+ content**. Use only in NSFW-allowed servers and by users 18+. If you're not familiar with APIs, do not mess with the code — it may break the bot or leak sensitive data.
+This bot contains **18+ content**. Use only in NSFW-allowed servers and by users 18+. If you're not familiar with APIs, do not mess with the code — *it may break the bot or leak sensitive data.*
 
 ---
 
 ## 📝 Note 
-I started this project in 2022, but it was never fully finished, so it contains some community-made commands from that time.
+This was my first Discord bot that i made back in 2022. Since I didn’t know much back then, I used some community-made commands. Later, I made some changes, fixes, improved overall NSFW features and added new NSFW stuff. As I never had the time to fully complete it, I’m now sharing it for free for anyone to use.
 
-In 2025, I returned to the project, made improvements, fixed many issues, and added a new NSFW system.
-Since I didn’t have time to fully complete it, I'm now making it available for anyone to use for free
+If anyone from the BDFD community recognizes their code in this project, please contact me for proper credit.
+This project will **not receive future updates** and will remain as it is, but if you have any questions or need help, feel free to reach out — *I’ll be happy to assist.*
 
-If anyone from the BDFD community recognizes their code in this project, please reach out — I’ll be happy to give you proper credit.  
 
 ---
 

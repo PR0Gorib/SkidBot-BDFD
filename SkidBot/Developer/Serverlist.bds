@@ -1,0 +1,49 @@
+$c[
+--- Command Info ---
+Get server list
+Scripting Language: BDScript 2
+Trigger: !s serverlist
+]
+
+$nomention
+$botTyping
+$reply
+ 
+
+$var[page;$calculate[($replaceText[$replaceText[*$message[1]*;**;1;1];*;;-1]-1)*10]]
+
+$var[s1;$guildID[$replaceText[$serverNames[$sum[$var[page];1];];$serverNames[$sum[$var[page];0];];;1]]]
+$var[s2;$guildID[$replaceText[$serverNames[$sum[$var[page];2];];$serverNames[$sum[$var[page];1];];;1]]]
+$var[s3;$guildID[$replaceText[$serverNames[$sum[$var[page];3];];$serverNames[$sum[$var[page];2];];;1]]]
+$var[s4;$guildID[$replaceText[$serverNames[$sum[$var[page];4];];$serverNames[$sum[$var[page];3];];;1]]]
+$var[s5;$guildID[$replaceText[$serverNames[$sum[$var[page];5];];$serverNames[$sum[$var[page];4];];;1]]]
+$var[s6;$guildID[$replaceText[$serverNames[$sum[$var[page];6];];$serverNames[$sum[$var[page];5];];;1]]] 
+$var[s7;$guildID[$replaceText[$serverNames[$sum[$var[page];7];];$serverNames[$sum[$var[page];6];];;1]]]
+$var[s8;$guildID[$replaceText[$serverNames[$sum[$var[page];8];];$serverNames[$sum[$var[page];7];];;1]]]
+$var[s9;$guildID[$replaceText[$serverNames[$sum[$var[page];9];];$serverNames[$sum[$var[page];8];];;1]]]
+$var[s10;$guildID[$replaceText[$serverNames[$sum[$var[page];10];];$serverNames[$sum[$var[page];9];];;1]]]
+
+
+**CalculationTime :** $executionTime Miliseconds!
+$color[007acc]
+$title[Total $allMembersCount users in $serverCount servers! | Page $replaceText[$replaceText[*$message[1]*;**;1;1];*;;2]/$calculate[($serverCount/10)+1]]
+
+$description[
+
+
+>>> **$sum[$var[page];1].** $try **[$serverName[$var[s1]]\]($getServerInvite[$var[s1]])** : $username[$serverOwner[$var[s1]]]#$discriminator[$serverOwner[$var[s1]]] `($creationDate[$var[s1]])`$catch <:NO_:904407395587997737> Couldn't Get Guild Info!$endtry
+**$sum[$var[page];2].** $try **[$serverName[$var[s2]]\]($getServerInvite[$var[s2]])** : $username[$serverOwner[$var[s2]]]#$discriminator[$serverOwner[$var[s2]]] `($creationDate[$var[s2]])`$catch <:NO_:904407395587997737> Couldn't Get Guild Info!$endtry
+**$sum[$var[page];3].** $try **[$serverName[$var[s3]]\]($getServerInvite[$var[s3]])** : $username[$serverOwner[$var[s3]]]#$discriminator[$serverOwner[$var[s3]]] `($creationDate[$var[s3]])`$catch <:NO_:904407395587997737> Couldn't Get Guild Info!$endtry
+**$sum[$var[page];4].** $try **[$serverName[$var[s4]]\]($getServerInvite[$var[s4]])** : $username[$serverOwner[$var[s4]]]#$discriminator[$serverOwner[$var[s4]]] `($creationDate[$var[s4]])`$catch <:NO_:904407395587997737> Couldn't Get Guild Info!$endtry
+**$sum[$var[page];5].** $try **[$serverName[$var[s5]]\]($getServerInvite[$var[s5]])** : $username[$serverOwner[$var[s5]]]#$discriminator[$serverOwner[$var[s5]]] `($creationDate[$var[s5]])`$catch <:NO_:904407395587997737> Couldn't Get Guild Info!$endtry
+**$sum[$var[page];6].** $try **[$serverName[$var[s6]]\]($getServerInvite[$var[s6]])** : $username[$serverOwner[$var[s6]]]#$discriminator[$serverOwner[$var[s6]]] `($creationDate[$var[s6]])`$catch <:NO_:904407395587997737> Couldn't Get Guild Info!$endtry
+**$sum[$var[page];7].** $try **[$serverName[$var[s7]]\]($getServerInvite[$var[s7]])** : $username[$serverOwner[$var[s7]]]#$discriminator[$serverOwner[$var[s7]]] `($creationDate[$var[s7]])`$catch <:NO_:904407395587997737> Couldn't Get Guild Info!$endtry
+**$sum[$var[page];8].** $try **[$serverName[$var[s8]]\]($getServerInvite[$var[s8]])** : $username[$serverOwner[$var[s8]]]#$discriminator[$serverOwner[$var[s8]]] `($creationDate[$var[s8]])`$catch <:NO_:904407395587997737> Couldn't Get Guild Info!$endtry
+**$sum[$var[page];9].** $try **[$serverName[$var[s9]]\]($getServerInvite[$var[s9]])** : $username[$serverOwner[$var[s9]]]#$discriminator[$serverOwner[$var[s9]]] `($creationDate[$var[s9]])`$catch <:NO_:904407395587997737> Couldn't Get Guild Info!$endtry
+**$sum[$var[page];10].** $try **[$serverName[$var[s10]]\]($getServerInvite[$var[s10]])** : $username[$serverOwner[$var[s10]]]#$discriminator[$serverOwner[$var[s10]]] `($creationDate[$var[s10]])`$catch <:NO_:904407395587997737> Couldn't Get Guild Info!$endtry
+
+]
+
+$footer[$username]
+$addTimestamp
+$onlyForIDs[YOUR_ID_HERE;❌ Only my owner can use this command!!]

@@ -1,0 +1,12 @@
+$c[
+--- Command Info ---
+Give user a role 
+Scripting Language: BDScript 2
+Trigger: !s addrole 
+]
+
+$nomention
+$onlyPerms[manageroles;You need the "Manage Roles" permission to use this command.]
+$argsCheck[>2;Usage: `addrole @user @role`]
+$giveRole[$mentioned[1];$mentionedRoles[1]]
+✅ Gave <@$mentioned[1]> the role <@&$mentionedRoles[1]>

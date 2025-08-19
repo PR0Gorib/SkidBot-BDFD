@@ -1,0 +1,30 @@
+$c[
+--- Command Info ---
+Mute a user 
+Scripting Language: BDScript 2
+Triggers: !s mute
+]
+
+$nomention
+$onlyIf[$checkUserPerms[$authorID;moderatemembers]==true;❌ You don’t have permission to timeout members.]
+$onlyIf[$mentioned[1]!=;❌ You must mention a user to timeout.]
+$onlyIf[$message[2]!=;❌ You must provide a duration (e.g. 10m, 1h) & a reason.]
+$onlyIf[$message[3]!=;❌ You must provide a duration (e.g. 10m, 1h) & a reason.]
+$onlyIf[$isBot[$mentioned[1]]==false;❌ You can't timeout a bot, bruh.]
+$onlyIf[$authorID!=$mentioned[1];❌ You can't timeout yourself. Chill. 😅]
+$onlyIf[$checkUserPerms[$botID;moderatemembers]==true;❌ I don't have permission to timeout users.]
+
+
+$timeout[$message[2];$mentioned[1]]
+
+$title[🔇 Timeout Issued]
+$description[
+<@$mentioned[1]> has been muted for **$message[2]**
+
+**Reason:** $message[3] $message[4] $message[5] $message[6] $message[7] $message[8] $message[9] $message[10]
+]
+$color[ffcc00]
+$footer[Muted by $username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$suppressErrors[❌ Something went wrong. Make sure your command is like: !s mute @user 10m reason here]

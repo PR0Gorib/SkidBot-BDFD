@@ -1,0 +1,29 @@
+$c[
+--- Command Info ---
+Kick a user
+Scripting Language: BDScript 2
+Trigger: !s kick
+]
+
+$nomention
+$onlyPerms[kick;❌ You don't have permission to use this command!]
+$onlyIf[$mentioned[1]!=;❌ You must mention a user to kick.]
+$deletecommand
+$cooldown[5s;🕐 Please wait 5 seconds before using this again.]
+
+$kick[$mentioned[1];$noMentionMessage]
+
+$title[🚪 $username[$mentioned[1]] has been kicked]
+$description[
+Successfully kicked <@$mentioned[1]> from **$serverName[$guildID]**
+
+**__Reason__**
+$noMentionMessage
+]
+$thumbnail[$userAvatar[$mentioned[1]]]
+$footer[Kicked by $username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$color[FF0000]
+
+$suppressErrors[❌ Something went wrong. Make sure you mention a valid user and try again.]

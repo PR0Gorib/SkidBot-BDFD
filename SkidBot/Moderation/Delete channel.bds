@@ -1,0 +1,32 @@
+$c[
+--- Command Info ---
+Delete specified channel. create 3 cmnds 
+Scripting Language: BDScript 2
+Trigger: 1st cmnd - !s dc , 2nd cmnd - $onInteraction[Yes] , 3rd cmnd - $onInteraction[No]
+]
+
+-- First Command --  
+
+$nomention
+$cooldown[5s;<:time:921260217247887381> %time%]
+$onlyPerms[managechannels;Don't have enough permissions. ✗]
+$addButton[no;Yes;Yes;danger;no;]
+$addButton[no;No;No;success;no;]
+Are you sure you want to delete <#$channelID>?
+$suppressErrors
+
+-- Second Command -- 
+
+$nomention
+$onlyPerms[managechannels;Don't have enough permissions. ✗]
+$deleteChannels[$channelID]
+$suppressErrors
+
+-- Third Command -- 
+
+$nomention
+$deleteIn[3s]
+$onlyPerms[managechannels;Don't have enough permissions. ✗]
+$removeButtons
+Channel <#$channelID> wasn’t deleted. 
+$suppressErrors

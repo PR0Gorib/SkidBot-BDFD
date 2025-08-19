@@ -1,0 +1,20 @@
+$c[
+--- Command Info ---
+Unban a user 
+Scripting Language: BDScript 2
+Triggers: !s unban
+]
+
+$nomention
+$onlyIf[$checkUserPerms[$authorID;ban]==true;❌ You don't have permission to unban members.]
+$onlyIf[$message[1]!=;❌ Please provide a user ID or mention to unban.]
+
+$unbanID
+
+$title[✅ Unbanned Successful]
+$description[Unbanned <@$replaceText[$replaceText[$message[1];<@!;;1];>;]> successfully.]
+$color[00ff99]
+$footer[Requested by $username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$suppressErrors[❌ Unban failed. Make sure it's a valid banned user ID.]

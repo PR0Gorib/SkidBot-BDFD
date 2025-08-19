@@ -1,0 +1,37 @@
+$c[
+--- Command Info ---
+Bulk delete messages
+Scripting Language: BDScript 2
+Trigger: !s purge
+]
+
+$nomention
+$deletecommand
+$onlyBotPerms[managemessages;❌ I need the `Manage Messages` permission to run this command.]
+$onlyPerms[managemessages;❌ <@$authorID>, you need the `Manage Messages` permission to use this command.]
+
+$onlyIf[$noMentionMessage!=;❌ Please provide how many messages to delete. **Usage:** `!s clear <number> {@user}`]
+$onlyIf[$isNumber[$noMentionMessage]==true;❌ That’s not a valid number. **Usage:** `!s clear <number> {@user}`]
+$onlyIf[$noMentionMessage>=2;❌ You must delete **at least 2** messages.]
+$onlyIf[$noMentionMessage<=500;❌ You can only delete **up to 500** messages.]
+$argsCheck[>1;❌ **Usage:** `!s clear <number> {@user}`]
+
+$title[🧹 Clearing Messages...]
+$description[Please wait while I clean the chat...]
+$color[ffcc00]
+
+$try
+$clear[$noMentionMessage;$replaceText[$replaceText[&$mentioned[1]&;&&;;1];&$mentioned[1]&;$mentioned[1];1];no]
+
+$editIn[1s;
+✅ Successfully cleared **$noMentionMessage** $replaceText[$replaceText[&$mentioned[1]&;&&;messages in chat;1];&$mentioned[1]&;messages from;1] $replaceText[$replaceText[&$mentioned[1]&;&&;;1];&$mentioned[1]&;<@$mentioned[1]>;1]
+]
+$deleteIn[9s]
+$catch
+$editIn[1s;❌ Couldn’t clear messages. Make sure they’re under 14 days old and I have proper permissions.]
+$deleteIn[9s]
+$endtry
+
+$footer[Cleared by $username]
+$footerIcon[$userAvatar[$authorID]]
+$addTimestamp

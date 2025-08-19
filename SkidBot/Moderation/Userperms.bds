@@ -1,0 +1,44 @@
+$c[
+--- Command Info ---
+View user permissions
+Scripting Language: BDScript 2
+Trigger: !s userperms 
+]
+
+$nomention
+$suppressErrors[Please mention user that you want to check perms!]
+$author[$username[$mentioned[1;yes]]]
+$authorIcon[$userAvatar[$mentioned[1;yes]]]
+$color[$random[10000;9999999]]
+$title[👤 User Permissions]
+$description[
+$replaceText[$replaceText[
+
+Administrator: $checkUserPerms[$mentioned[1;yes];admin]
+Add reactions: $checkUserPerms[$mentioned[1;yes];addreactions]
+Attach files: $checkUserPerms[$mentioned[1;yes];attachfiles]
+Ban: $checkUserPerms[$mentioned[1;yes];ban]
+Change nicknames: $checkUserPerms[$mentioned[1;yes];changenicknames]
+Create invite: $checkUserPerms[$mentioned[1;yes];createinstantinvite]
+Embed links: $checkUserPerms[$mentioned[1;yes];embedlinks]
+Use nitro emojis: $checkUserPerms[$mentioned[1;yes];externalemojis]
+Kick: $checkUserPerms[$mentioned[1;yes];kick]
+Manage channels: $checkUserPerms[$mentioned[1;yes];managechannels]
+Manage emojis: $checkUserPerms[$mentioned[1;yes];manageemojis]
+Manage messages: $checkUserPerms[$mentioned[1;yes];managemessages]
+Manage nicknames: $checkUserPerms[$mentioned[1;yes];managenicknames]
+Manage roles: $checkUserPerms[$mentioned[1;yes];manageroles]
+Manage server and bots: $checkUserPerms[$mentioned[1;yes];manageserver]
+Manage webhooks: $checkUserPerms[$mentioned[1;yes];managewebhooks]
+Mention everyone, here and all roles: $checkUserPerms[$mentioned[1;yes];mentioneveryone]
+Read messages: $checkUserPerms[$mentioned[1;yes];readmessages]
+Send messages: $checkUserPerms[$mentioned[1;yes];sendmessages]
+Send tts messages: $checkUserPerms[$mentioned[1;yes];tts]
+
+;false;✖;-1];true;✅;-1]
+]
+
+$footer[$username] 
+$footerIcon[$authorAvatar]
+$addTimestamp
+$suppressErrors[Mention a role or User]  

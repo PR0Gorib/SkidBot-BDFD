@@ -1,0 +1,26 @@
+$c[
+--- Command Info ---
+Unmute a user 
+Scripting Language: BDScript 2
+Triggers: !s unmute
+]
+
+$nomention
+$onlyIf[$checkUserPerms[$authorID;moderatemembers]==true;❌ You don’t have permission to unmute members.]
+$onlyIf[$mentioned[1]!=;❌ You must mention a user to unmute.]
+$onlyIf[$isBot[$mentioned[1]]==false;❌ You cannot unmute a bot.]
+
+$timeout[-1;$mentioned[1]]
+
+$title[🔊 User Unmuted]
+$description[
+<@$mentioned[1]> has been unmuted.
+
+• 🕒 Timeout removed successfully.
+]
+$color[#00ffcc]
+$footer[Unmuted by $username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+
+$suppressErrors[❌ Something went wrong. Make sure the user is muted and try again.]

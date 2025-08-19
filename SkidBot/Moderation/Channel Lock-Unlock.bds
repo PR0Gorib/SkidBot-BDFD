@@ -1,0 +1,28 @@
+$c[
+--- Command Info ---
+Lock/Unlock channel messages
+Scripting Language: BDScript 2
+Trigger: !s lock-unlock 
+]
+
+$nomention
+$if[$message==]
+$endif
+$if[$message[1]==lock]
+$title[🔒 Channel Locked]
+$thumbnail[https://cdn.discordapp.com/attachments/1386795427063533669/1387125390912262216/locked.png?ex=685c34b0&is=685ae330&hm=5e0d39ff16bbfc926286b8d85ed0764a3fb59597c5549c10229637873c959d45&]
+$description[<#$mentionedChannels[1;yes]> Channel $toLowercase[$message[1]]ed by **$username**]
+$onlyPerms[managechannels;You Don't have ``manage channel`` perms!]
+$onlyBotPerms[managechannels;I Don't have manage channels perms!]
+$modifyChannelPerms[$mentionedChannels[1;yes];-sendmessages;$guildID]
+$color[F64668]
+$endif
+$if[$message[1]==unlock]
+$title[🔓 Channel Unlocked]
+$thumbnail[https://cdn.discordapp.com/attachments/1386795427063533669/1387130729866989730/Picsart_25-06-25_00-01-37-653.png?ex=685c39a9&is=685ae829&hm=9d6f7b22aedebb1e7686108caf4949983ab20cde986a6b66195654f4154a879b&]
+$description[<#$mentionedChannels[1;yes]> Channel $toLowercase[$message[1]]ed by **$username**]
+$onlyPerms[managechannels;You Don't have ``manage_channel`` perms!]
+$onlyBotPerms[managechannels;I Don't have ``manage_channels`` perms!]
+$modifyChannelPerms[$mentionedChannels[1;yes];+sendmessages;$guildID]
+$color[90ee90]
+$endif

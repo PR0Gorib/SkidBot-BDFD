@@ -1,0 +1,20 @@
+$c[
+--- Command Info ---
+"How Gay?" meter with avatar overlay 
+Scripting Language: BDScript 2
+Trigger: !s howgay
+]
+
+$nomention
+$deletecommand
+$var[avatar;$userAvatar[$mentioned[1;yes]]]
+$image[https://api.some-random-api.com/canvas/overlay/gay?avatar=$var[avatar]]
+
+$title[🌈 How Gay is $nickname[$mentioned[1;yes]]?]
+$description[`$random[0;200]%` gay! 😱]
+$color[$randomText[#FF75A2;#FFB347;#FFD700;#9B59B6;#3498DB;#E91E63;#03A9F4;#FF69B4]]
+$addTimestamp
+$footer[$username]
+$footerIcon[$authorAvatar]
+$cooldown[3s;🕒 Please wait %time% before using this command again.]
+$suppressErrors[❌ Failed to generate image. Try again later.]

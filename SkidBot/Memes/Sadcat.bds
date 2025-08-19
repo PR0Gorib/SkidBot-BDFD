@@ -1,0 +1,13 @@
+$c[
+--- Command Info ---
+Sad cat meme with custom caption
+Scripting Language: BDScript 2
+Trigger: !s sadcat
+]
+
+$nomention
+$color[$random[0;16777216]]
+$image[https://api.popcat.xyz/sadcat?text=$message]
+$argsCheck[>1;Incorrect usage. use ``!s sadcat <your+text>``]
+$footer[$username]
+$addTimestamp

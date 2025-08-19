@@ -1,0 +1,18 @@
+$c[
+--- Command Info ---
+Communist Avatar Overlay
+Scripting Language: BDScript 2
+Triggers: !s comrade
+]
+
+$nomention
+$deletecommand
+$image[https://api.some-random-api.com/canvas/overlay/comrade?avatar=$userAvatar[$mentioned[1;yes]]]
+
+$title[☭🇨🇳 $username[$mentioned[1;yes]] has joined the Motherland!]
+$color[#d32f2f]
+$footer[Comradely respect from $username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$cooldown[3s;🕒 Please wait %time% before using this command again.]
+$suppressErrors[❌ Failed to generate the image. Try again later.]

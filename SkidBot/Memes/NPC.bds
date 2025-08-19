@@ -1,0 +1,19 @@
+$c[
+--- Command Info ---
+Make a NPC Meme
+Scripting Language: BDScript 2
+Trigger: !s npc 
+]
+
+$nomention
+$deletecommand
+$title[]
+$color[$random[0;16777216]]$onlyIfMessageContains[$message;-;`Usage: !s npc text1-text2`]
+$textSplit[$message;-]
+$image[https://vacefron.nl/api/npc?text1=$replaceText[$splitText[1]; ;+;-1]&text2=$replaceText[$splitText[2]; ;+;-1]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$botTyping
+$cooldown[3s;Please wait %time% before using this command again]
+$suppressErrors[Please try again later.]

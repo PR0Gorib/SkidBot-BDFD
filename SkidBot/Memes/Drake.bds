@@ -1,0 +1,18 @@
+$c[
+--- Command Info ---
+Drake Hotline Bling Meme Template
+Scripting Language: BDScript 2
+Trigger: !s drake
+]
+
+$nomention
+$deletecommand
+$title[]
+$color[$random[0;16777216]]$onlyIfMessageContains[$message;-;Incorrect usage. use ``!s drake text1-text2``]
+$textSplit[$message;-]
+$image[https://api.popcat.xyz/v2/drake?text1=$replaceText[$splitText[1]; ;+;-1]&text2=$replaceText[$splitText[2]; ;+;-1]]
+$footer[$username]
+$addTimestamp
+$botTyping
+$cooldown[3s;Please wait %time% before using this command again]
+$suppressErrors[Please try again later.]

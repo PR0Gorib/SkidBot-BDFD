@@ -1,0 +1,13 @@
+$c[
+--- Command Info ---
+iPhone alert notification
+Scripting Language: BDScript 2
+Triggers: !s alert 
+]
+
+$nomention
+$color[$random[0;16777216]]
+$image[https://api.popcat.xyz/v2/alert?text=$message]
+$argsCheck[>1;Incorrect usage. use ``!s alert <text>``]
+$footer[$username]
+$addTimestamp

@@ -1,0 +1,13 @@
+$c[
+--- Command Info ---
+Surprised Pikachu meme with custom caption.
+Scripting Language: BDScript 2
+Trigger: !s pikachu
+]
+
+$nomention
+$color[$random[0;16777216]]
+$image[https://api.popcat.xyz/pikachu?text=$message]
+$argsCheck[>1;Incorrect usage. use ``!s pikachu <text>``]
+$footer[$username]
+$addTimestamp

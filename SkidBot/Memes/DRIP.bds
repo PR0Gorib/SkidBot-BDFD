@@ -1,0 +1,19 @@
+$c[
+--- Command Info ---
+Dripped out Avatar Overlay
+Scripting Language: BDScript 2
+Triggers: !s drip 
+]
+
+$nomention
+$image[
+$replaceText[$replaceText[$randomText[https://vacefron.nl/api/drip?user=$userAvatar[$mentioned[1;yes]];https://api.popcat.xyz/v2/drip?image=$userAvatar[$mentioned[1;yes]]];https://vacefron.nl/api/;https://vacefron.nl/api/];https://api.popcat.xyz/;https://api.popcat.xyz/]
+]
+
+$title[💀 $username[$mentioned[1;yes]] just got DRIPPED OUT!]
+$color[2C2F33]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$cooldown[3s;🕒 Please wait %time% before using this command again.]
+$suppressErrors[❌ Failed to generate the image. Try again later.]

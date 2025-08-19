@@ -1,0 +1,37 @@
+$c[
+--- Command Info ---
+Cuddle with a user
+Scripting Language: BDScript 2
+Triggers: !s cuddle
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to cuddle.]
+$cooldown[3s;🕐 You can cuddle again in **%time%**]
+
+$var[source;$randomText[nekos;waifupics]]
+
+$if[$var[source]==nekos]
+$httpGet[https://nekos.best/api/v2/cuddle]
+$description[<@$authorID> cuddled <@$mentioned[1]> 💖]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFC0CB;ADD8E6;FFB6C1;FFD700;E6E6FA]]
+$elseif[$var[source]==waifupics]
+$httpGet[https://api.waifu.pics/sfw/cuddle]
+$description[<@$authorID> cuddled <@$mentioned[1]> 💞]
+$image[$httpResult[url]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFA07A;DA70D6;98FB98;AFEEEE;FFFACD]]
+$endif
+
+$addTimestamp
+
+$if[$mentioned[1]==$authorID]
+Why are you cuddling yourself? You okay bro? 🥲
+$endif
+$if[$mentioned[1]==$authorID]
+Are sure about biting yourself? 🙂
+$endif

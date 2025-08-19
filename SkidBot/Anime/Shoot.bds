@@ -1,0 +1,20 @@
+$c[
+--- Command Info ---
+Shoot at someone
+Scripting Language: BDScript 2
+Trigger: !s shoot
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to shoot.]
+$cooldown[3s;🕚 You can shoot again in **%time%**]
+$httpGet[https://nekos.best/api/v2/shoot]
+$description[<@$authorID> just shot <@$mentioned[1]>! 💥]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFFF00;A020F0;00FF00;0000FF;ff0000]]
+$addTimestamp
+$if[$mentioned[1]==$authorID]
+Shooting yourself? You okay bro? 🥲
+$endif

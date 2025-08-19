@@ -1,0 +1,35 @@
+$c[
+--- Command Info ---
+Pat their head or back
+Scripting Language: BDScript 2
+Trigger: !s pat 
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to pat!]
+$cooldown[3s;🕐 You can pat again in **%time%**]
+
+$var[source;$randomText[nekos;waifupics]]
+
+$if[$var[source]==nekos]
+$httpGet[https://nekos.best/api/v2/pat]
+$description[<@$authorID> gently pats <@$mentioned[1]>! 🐾✨]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFC0CB;FFD700;87CEFA;FF69B4;98FB98]]
+
+$elseif[$var[source]==waifupics]
+$httpGet[https://api.waifu.pics/sfw/pat]
+$description[<@$authorID> gently pats <@$mentioned[1]>! 🐾✨]
+$image[$httpResult[url]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFB6C1;DA70D6;00CED1;FFFACD;E6E6FA]]
+$endif
+
+$addTimestamp
+
+$if[$mentioned[1]==$authorID]
+Patting yourself? That’s wild. Therapy might be cheaper than Discord roleplay. 🧠🪦
+$endif

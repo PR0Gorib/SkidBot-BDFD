@@ -1,0 +1,20 @@
+$c[
+--- Command Info ---
+Tickle a user
+Scripting Language: BDScript 2
+Triggers: !s tickle
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to tickle.]
+$cooldown[3s;🕚 You can tickle again in **%time%**]
+$httpGet[https://nekos.best/api/v2/tickle]
+$description[<@$authorID> tickled <@$mentioned[1]> 🌚]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFFF00;A020F0;00FF00;0000FF;ff0000]]
+$addTimestamp
+$if[$mentioned[1]==$authorID]
+Tickling yourself? That's not self-love, that's self-pity 😭
+$endif

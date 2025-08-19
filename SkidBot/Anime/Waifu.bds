@@ -1,0 +1,27 @@
+$c[
+--- Command Info ---
+Get your random waifu
+Scripting Language: BDScript 2
+Triggers: !s waifu
+]
+
+$nomention
+
+$var[source;$randomText[nekos;waifupics]]
+
+$if[$var[source]==nekos]
+$httpGet[https://nekos.best/api/v2/waifu]
+$title[💞 Here's a Waifu for you!]
+$image[$httpResult[results;0;url]]
+$description[**Source:** $httpResult[results;0;source_url]]
+$color[#e91e63]
+$elseif[$var[source]==waifupics]
+$httpGet[https://api.waifu.pics/sfw/waifu]
+$title[💕 Here's a Waifu for you!]
+$image[$httpResult[url]]
+$color[#ffb6c1]
+$endif
+
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp

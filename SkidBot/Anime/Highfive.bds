@@ -1,0 +1,35 @@
+$c[
+--- Command Info ---
+Give a high five!
+Scripting Language: BDScript 2
+Triggers: !s highfive
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to highfive!]
+$cooldown[3s;🕐 You can highfive again in **%time%**]
+
+$var[source;$randomText[nekos;waifupics]]
+
+$if[$var[source]==nekos]
+$httpGet[https://nekos.best/api/v2/highfive]
+$description[<@$authorID> highfived <@$mentioned[1]>! ✋🔥]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFD700;1E90FF;32CD32;FF69B4;FFA500]]
+
+$elseif[$var[source]==waifupics]
+$httpGet[https://api.waifu.pics/sfw/highfive]
+$description[<@$authorID> highfived <@$mentioned[1]>! ✋🔥]
+$image[$httpResult[url]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$color[$randomText[FF4500;00BFFF;00FA9A;FF1493;FFFF00]]
+$endif
+
+$addTimestamp
+
+$if[$mentioned[1]==$authorID]
+Trying to highfive yourself? That’s bold. ✋💥
+$endif

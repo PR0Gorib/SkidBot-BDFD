@@ -1,0 +1,17 @@
+$c[
+--- Command Info ---
+Baka (⁠ー⁠_⁠ー⁠゛⁠)
+Scripting Language: BDScript 2
+Triggers: !s baka
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Pls mention someone to use.]
+$cooldown[3s;🕚 You can use this cmnd again in **%time%**]
+$httpGet[https://nekos.best/api/v2/baka]
+$description[<@$mentioned[1]> bakaa!! (⁠ー⁠_⁠ー⁠゛⁠)]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFFF00;A020F0;00FF00;0000FF;ff0000]]
+$addTimestamp

@@ -1,0 +1,35 @@
+$c[
+--- Command Info ---
+Bite a user
+Scripting Language: BDScript 2
+Triggers: !s bite
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to bite!]
+$cooldown[3s;🕐 You can bite again in **%time%**]
+
+$var[source;$randomText[nekos;waifupics]]
+
+$if[$var[source]==nekos]
+$httpGet[https://nekos.best/api/v2/bite]
+$description[<@$authorID> bit <@$mentioned[1]>!]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[DC143C;8A2BE2;00CED1;FFD700;ADFF2F]]
+
+$elseif[$var[source]==waifupics]
+$httpGet[https://api.waifu.pics/sfw/bite]
+$description[<@$authorID> bit <@$mentioned[1]>!]
+$image[$httpResult[url]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$color[$randomText[FF4500;4B0082;FF1493;40E0D0;90EE90]]
+$endif
+
+$addTimestamp
+
+$if[$mentioned[1]==$authorID]
+Are sure about biting yourself? 🙂
+$endif

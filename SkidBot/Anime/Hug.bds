@@ -1,0 +1,35 @@
+$c[
+--- Command Info ---
+Send a hug
+Scripting Language: BDScript 2
+Triggers: !s hug
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to hug!]
+$cooldown[3s;🕐 You can hug again in **%time%**]
+
+$var[source;$randomText[nekos;waifupics]]
+
+$if[$var[source]==nekos]
+$httpGet[https://nekos.best/api/v2/hug]
+$description[<@$authorID> gave <@$mentioned[1]> a warm hug! 🤗💞]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[FF69B4;FFD700;87CEEB;98FB98;FFB6C1]]
+
+$elseif[$var[source]==waifupics]
+$httpGet[https://api.waifu.pics/sfw/hug]
+$description[<@$authorID> gave <@$mentioned[1]> a warm hug! 🤗💞]
+$image[$httpResult[url]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFC0CB;20B2AA;FAFAD2;DDA0DD;90EE90]]
+$endif
+
+$addTimestamp
+
+$if[$mentioned[1]==$authorID]
+Hugging yourself? Damn. Discord just became your therapist. 🧠💬
+$endif

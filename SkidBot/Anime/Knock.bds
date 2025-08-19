@@ -1,0 +1,35 @@
+$c[
+--- Command Info ---
+Kick out someone
+Scripting Language: BDScript 2
+Triggers: !s knock
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to kick!]
+$cooldown[3s;🕐 You can kick again in **%time%**]
+
+$var[source;$randomText[nekos;waifupics]]
+
+$if[$var[source]==nekos]
+$httpGet[https://nekos.best/api/v2/kick]
+$description[<@$authorID> kicked <@$mentioned[1]>! 👢💥]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[FF0000;FFD700;FF69B4;00CED1;ADFF2F]]
+
+$elseif[$var[source]==waifupics]
+$httpGet[https://api.waifu.pics/sfw/kick]
+$description[<@$authorID> kicked <@$mentioned[1]>! 👢💥]
+$image[$httpResult[url]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$color[$randomText[FF4500;FFA500;FF1493;40E0D0;98FB98]]
+$endif
+
+$addTimestamp
+
+$if[$mentioned[1]==$authorID]
+You really just kicked yourself… impressive 👏
+$endif

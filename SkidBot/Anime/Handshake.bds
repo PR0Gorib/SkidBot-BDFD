@@ -1,0 +1,21 @@
+$c[
+--- Command Info ---
+Offer a handshake
+Scripting Language: BDScript 2
+Triggers: !s handshake
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to handshake.]
+$cooldown[3s;🕚 You can handshake again in **%time%**]
+$httpGet[https://nekos.best/api/v2/handshake]
+$description[<@$authorID> shook hands with <@$mentioned[1]> 🤝]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFFF00;A020F0;00FF00;0000FF;ff0000]]
+$addTimestamp
+$if[$mentioned[1]==$authorID]
+Shaking your own hand? That’s the loneliest flex I’ve ever seen 💀
+$endif
+

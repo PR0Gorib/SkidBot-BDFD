@@ -1,0 +1,20 @@
+$c[
+--- Command Info ---
+Punch a user
+Scripting Language: BDScript 2
+Trigger: !s punch
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to punch.]
+$cooldown[3s;🕚 You can punch again in **%time%**]
+$httpGet[https://nekos.best/api/v2/punch]
+$description[<@$authorID> punched! <@$mentioned[1]>! 💢]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFFF00;A020F0;00FF00;0000FF;ff0000]]
+$addTimestamp
+$if[$mentioned[1]==$authorID]
+Punching yourself? Congrats, you landed your first hit in life 💀
+$endif

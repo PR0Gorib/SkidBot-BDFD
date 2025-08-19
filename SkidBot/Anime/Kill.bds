@@ -1,0 +1,20 @@
+$c[
+--- Command Info ---
+Playfully "kill" the user
+Scripting Language: BDScript 2
+Triggers: !s kill
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to kill.]
+$cooldown[3s;🕚 You can kill again in **%time%**]
+$httpGet[https://api.waifu.pics/sfw/kill]
+$description[<@$authorID> killed <@$mentioned[1]>! ⚰️💀]
+$image[$httpResult[url]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$color[$randomText[FFFF00;A020F0;00FF00;0000FF;ff0000]]
+$addTimestamp
+$if[$mentioned[1]==$authorID]
+Bruh… you can’t even kill it in life 💀
+$endif

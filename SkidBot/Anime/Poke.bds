@@ -1,0 +1,34 @@
+$c[
+--- Command Info ---
+Poke a user
+Scripting Language: BDScript 2
+Triggers: !s poke
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to poke.]
+$cooldown[3s;🕐 You can poke again in **%time%**]
+
+$var[source;$randomText[nekos;waifupics]]
+
+$if[$var[source]==nekos]
+$httpGet[https://nekos.best/api/v2/poke]
+$description[<@$authorID> poked <@$mentioned[1]>! 👉😳]
+$image[$httpResult[results;0;url]]
+$footer[Anime: $httpResult[results;0;anime_name]]
+$footerIcon[$authorAvatar]
+$color[$randomText[8A2BE2;FF69B4;FFD700;00CED1;ADFF2F]]
+$elseif[$var[source]==waifupics]
+$httpGet[https://api.waifu.pics/sfw/poke]
+$description[<@$authorID> poked <@$mentioned[1]>! 👉😳]
+$image[$httpResult[url]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$color[$randomText[9370DB;FFB6C1;FFFFE0;40E0D0;98FB98]]
+$endif
+
+$addTimestamp
+
+$if[$mentioned[1]==$authorID]
+You really poked yourself... you good bro? 🥲
+$endif

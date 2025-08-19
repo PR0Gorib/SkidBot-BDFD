@@ -1,0 +1,43 @@
+$c[
+--- Command Info ---
+Get random SFW anime images
+Scripting Language: BDScript 2
+Triggers: !s random
+]
+
+$nomention
+$var[api;$randomText[some_random;waifu;nekosbest;purrbot]]
+
+$if[$var[api]==some_random]
+$httpGet[https://some-random-api.com/animu/$randomText[nom;poke;cry;kiss;pat;hug;wink;face-palm;]]
+$title[🌸 Random SFW Image]
+$image[$httpResult[link]]
+$description[Here's a random image for you.]
+$endif
+
+$if[$var[api]==waifu]
+$httpGet[https://api.waifu.pics/sfw/$randomText[waifu;neko;shinobu;megumin;bully;cuddle;cry;hug;awoo;kiss;lick;pat;smug;bonk;yeet;blush;smile;wave;highfive;handhold;nom;bite;glomp;slap;kill;kick;happy;wink;poke;dance;cringe]]
+$title[🌸 Random SFW Image]
+$image[$httpResult[url]]
+$description[Here's a random image for you.]
+$endif
+
+$if[$var[api]==nekosbest]
+$httpGet[https://nekos.best/api/v2/$randomText[smile;wave;wink;hug;pat;highfive;poke;cry;dance;blush;baka;kiss;lick;nod;shrug;stare;think;thumbsup]]
+$title[🌸 Random SFW Image]
+$image[$httpResult[results;0;url]]
+$description[Here's a random image for you.]
+$endif
+
+$if[$var[api]==purrbot]
+$httpGet[https://api.purrbot.site/v2/img/sfw/$randomText[angry;bite;blush;comfy;cry;cuddle;dance;fluff;hug;kiss;lay;lick;neko;pat;poke;pout;slap;smile;tail;tickle]/gif]
+$title[🌸 Random SFW Image]
+$image[$httpResult[link]]
+$description[Here's a random image for you.]
+$endif
+
+$color[$randomText[#03A9F4;#FF9800;#4CAF50;#9C27B0]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$suppressErrors

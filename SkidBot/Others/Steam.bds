@@ -1,0 +1,35 @@
+$c[
+--- Command Info ---
+Get Steam game information
+Scripting Language: BDScript 2
+Triggers: !s steam 
+]
+
+$nomention
+$onlyIf[$noMentionMessage!=;❌ Please provide a game name. Example: !s steam Minecraft]
+$httpGet[https://api.popcat.xyz/v2/steam?q=$replaceText[$noMentionMessage; ;+]]
+
+$if[$httpResult[error]!=true]
+$title[$httpResult[message;name]]
+$thumbnail[$httpResult[message;thumbnail]]
+$description[
+**__Description__**
+$httpResult[message;description]
+
+**Developers:** $httpResult[message;developers]
+**Publishers:** $httpResult[message;publishers]
+**Price:** $httpResult[message;price]
+**Website:** $httpResult[message;website]
+]
+$image[$httpResult[message;banner]]
+$color[#1b2838]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$else
+$title[❌ Game Not Found]
+$description[Steam couldn't find this game. Try a different name.]
+$color[#ff0000]
+$endif
+
+$suppressErrors[❌ Failed to fetch data. Please try again later.]

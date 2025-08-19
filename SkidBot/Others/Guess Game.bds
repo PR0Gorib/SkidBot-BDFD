@@ -1,0 +1,209 @@
+$c[
+--- Command Info ---
+Play a "Guess the Number" game
+Scripting Language: BDScript 2
+Triggers: 1st cmnd - !s gg , 2nd cmnd - $onInteraction
+Variables: numbers Value=0
+]
+
+-- First Command --
+
+$nomention
+$setUserVar[numbers;$random[1;5]]
+$addButton[no;buttonguess1-$authorID;1;primary;no;]
+$addButton[no;buttonguess2-$authorID;2;primary;no;]
+$addButton[no;buttonguess3-$authorID;3;primary;no;]
+$addButton[no;buttonguess4-$authorID;4;primary;no;]
+$title[:1234: GUESS THE NUMBER]
+$description[Pick the correct number below to win, you only have one guess!]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$suppressErrors
+
+-- Second Command --
+
+$nomention
+$if[$customID==buttonguess1-$authorID]
+$if[$getUserVar[numbers]==1]
+$editButton[buttonguess1-$authorID;✅;success;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$setUserVar[numbers;$random[1;5]]
+$title[:1234: CORRECT NUMBER]
+$description[You picked the right number!]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$else
+$editButton[buttonguess1-$authorID;❌;danger;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$title[:1234: INCORRECT NUMBER]
+$description[You picked the wrong number, the correct number was `$getUserVar[numbers]` !]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$endif
+$endif
+ 
+$if[$customID==buttonguess2-$authorID]
+$if[$getUserVar[numbers]==2]
+$editButton[buttonguess2-$authorID;✅;success;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$setUserVar[numbers;$random[1;5]]
+$title[:1234: CORRECT NUMBER]
+$description[You picked the right number!]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$else
+$editButton[buttonguess2-$authorID;❌;danger;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$title[:1234: INCORRECT NUMBER]
+$description[You picked the wrong number, the correct number was `$getUserVar[numbers]` !]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$endif
+$endif
+ $c[Codes by AD!..]
+$if[$customID==buttonguess3-$authorID]
+$if[$getUserVar[numbers]==3]
+$editButton[buttonguess3-$authorID;✅;success;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$setUserVar[numbers;$random[1;5]]
+$title[:1234: CORRECT NUMBER]
+$description[You picked the right number!]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$else
+$editButton[buttonguess3-$authorID;❌;danger;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$title[:1234: INCORRECT NUMBER]
+$description[You picked the wrong number, the correct number was `$getUserVar[numbers]` !]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$endif
+$endif
+ 
+$if[$customID==buttonguess4-$authorID]
+$if[$getUserVar[numbers]==4]
+$editButton[buttonguess4-$authorID;✅;success;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$setUserVar[numbers;$random[1;5]]
+$title[:1234: CORRECT NUMBER]
+$description[You picked the right number!]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$else
+$editButton[buttonguess4-$authorID;❌;danger;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$title[:1234: INCORRECT NUMBER]
+$description[You picked the wrong number, the correct number was `$getUserVar[numbers]` !]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$endif
+$endif
+$suppressErrors$nomention
+$if[$customID==buttonguess1-$authorID]
+$if[$getUserVar[numbers]==1]
+$editButton[buttonguess1-$authorID;✅;success;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$setUserVar[numbers;$random[1;5]]
+$title[:1234: CORRECT NUMBER]
+$description[You picked the right number!]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$else
+$editButton[buttonguess1-$authorID;❌;danger;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$title[:1234: INCORRECT NUMBER]
+$description[You picked the wrong number, the correct number was `$getUserVar[numbers]` !]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$endif
+$endif
+ 
+$if[$customID==buttonguess2-$authorID]
+$if[$getUserVar[numbers]==2]
+$editButton[buttonguess2-$authorID;✅;success;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$setUserVar[numbers;$random[1;5]]
+$title[:1234: CORRECT NUMBER]
+$description[You picked the right number!]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$else
+$editButton[buttonguess2-$authorID;❌;danger;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$title[:1234: INCORRECT NUMBER]
+$description[You picked the wrong number, the correct number was `$getUserVar[numbers]` !]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$endif
+$endif
+ 
+$if[$customID==buttonguess3-$authorID]
+$if[$getUserVar[numbers]==3]
+$editButton[buttonguess3-$authorID;✅;success;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$setUserVar[numbers;$random[1;5]]
+$title[:1234: CORRECT NUMBER]
+$description[You picked the right number!]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$else
+$editButton[buttonguess3-$authorID;❌;danger;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$editButton[buttonguess4-$authorID;4;secondary;yes;]
+$title[:1234: INCORRECT NUMBER]
+$description[You picked the wrong number, the correct number was `$getUserVar[numbers]` !]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$endif
+$endif
+ 
+$if[$customID==buttonguess4-$authorID]
+$if[$getUserVar[numbers]==4]
+$editButton[buttonguess4-$authorID;✅;success;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$setUserVar[numbers;$random[1;5]]
+$title[:1234: CORRECT NUMBER]
+$description[You picked the right number!]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$else
+$editButton[buttonguess4-$authorID;❌;danger;yes;]
+$editButton[buttonguess2-$authorID;2;secondary;yes;]
+$editButton[buttonguess3-$authorID;3;secondary;yes;]
+$editButton[buttonguess1-$authorID;1;secondary;yes;]
+$title[:1234: INCORRECT NUMBER]
+$description[You picked the wrong number, the correct number was `$getUserVar[numbers]` !]
+$thumbnail[$authorAvatar]
+$color[447f4]
+$endif
+$endif
+$suppressErrors

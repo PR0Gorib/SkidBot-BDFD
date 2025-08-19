@@ -1,0 +1,18 @@
+$c[
+--- Command Info ---
+Capture a screenshot of any website
+Scripting Language: BDScript 2
+Triggers: !s screenshot
+]
+
+$nomention
+$suppressErrors[Where is the link? Your message must be a url!   Still error? `API DOWN` !]
+$title[$message[1]]
+$description[
+Here's your screenshot 
+]
+$color[$random[0;16777216]]
+$image[https://api.popcat.xyz/v2/screenshot?url=$message[1]]  
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp

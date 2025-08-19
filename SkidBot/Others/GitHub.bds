@@ -1,0 +1,23 @@
+$c[
+--- Command Info ---
+Show GitHub user or repo details
+Scripting Language: BDScript 2
+Trigger: !s github 
+]
+
+$nomention
+$reply
+$allowUserMentions[]
+$httpGet[https://api.popcat.xyz/github/$url[encode;$message]]
+$title[Github User Info For $httpResult[name]]
+$thumbnail[$httpResult[avatar]]
+$embeddedURL[$httpResult[url]]
+$addField[Username;$httpResult[name];yes]
+$addField[Location;$httpResult[location];yes]
+$addField[Followers;$httpResult[followers];yes]
+$addField[Following;$httpResult[following];yes]
+$addField[Public Gists;$httpResult[public_gists];yes]
+$addField[Public Repos;$httpResult[public_repos];yes]
+$addField[Email;$httpResult[email];yes]
+$addField[Bio;$httpResult[bio];yes]
+$color[$random[1;16777216]]

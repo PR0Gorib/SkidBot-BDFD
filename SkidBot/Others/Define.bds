@@ -1,0 +1,32 @@
+$c[
+--- Command Info ---
+Look up the definition of a word
+Scripting Language: BDScript 2
+Trigger: !s define
+]
+
+$nomention
+$onlyIf[$guildID!=;]
+$reply
+$allowUserMentions[]
+$nomention
+$embedSuppressErrors[;;00feff;;;]
+$cooldown[10s; **Please wait %time% to use this command again!**]
+$argsCheck[>1; Incorrect Usage: Use `-define <your word here>`]
+$httpGet[https://api.urbandictionary.com/v0/define?term=$noMentionMessage]
+$if[$httpResult[word]==]
+$description[No defination found for `$message`]
+$color[00feff]
+$else
+$addField[__Word__;$httpResult[word]]
+$if[$httpResult[definition]==]
+$description[No defination found for `$message`]
+$color[00feff]
+$else
+$addField[__Defination__;$httpResult[definition]]
+$color[00feff]
+$addTimestamp
+$suppressErrors
+$botTyping
+$endif
+$endif 

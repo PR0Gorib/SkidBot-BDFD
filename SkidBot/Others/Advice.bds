@@ -1,0 +1,22 @@
+$c[
+--- Command Info ---
+Get a random piece of advice
+Scripting Language: BDScript 2
+Triggers: !s advice 
+]
+
+$nomention
+$httpGet[https://api.adviceslip.com/advice]
+
+$if[$mentioned[1]!=]
+$description[🫂 Advice for <@$mentioned[1]>:
+> *$httpResult[slip;advice]*]
+$else
+$description[💭 Here's a piece of advice:
+> *$httpResult[slip;advice]*]
+$endif
+
+$footer[$username]
+$footerIcon[$authorAvatar]
+$color[#00bcd4]
+$addTimestamp

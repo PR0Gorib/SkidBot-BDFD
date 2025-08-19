@@ -1,0 +1,29 @@
+$c[
+--- Command Info ---
+Get a *definitely real* Kanye West quote
+Scripting Language: BDScript 2
+Triggers: !s kanye
+]
+
+$nomention
+$httpGet[https://api.kanye.rest]
+
+$title[$randomText[
+🎤 Kanye Speaks;
+👑 The Genius of Yeezus;
+💬 Straight from Mr. West;
+🧠 Deep Thoughts by Kanye;
+🔥 Kanye Dropped This;
+🎶 Yeezy Said It Best;
+🚀 Words from the GOAT;
+📢 Kanye with the Mic;
+📀 Unfiltered Kanye;
+✨ Yeezy Wisdom
+]]
+
+$description[> *"$httpResult[quote]"*
+- Kanye West]
+$color[#f39c12]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp

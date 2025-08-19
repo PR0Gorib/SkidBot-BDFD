@@ -1,0 +1,26 @@
+$c[
+--- Command Info ---
+Get a random animal fact with image
+Scripting Language: BDScript 2
+Triggers: !s animal
+]
+
+$nomention
+$var[animal;$randomText[dog;cat;panda;red_panda;fox;koala;bird;racoon;kangaroo;whale]]
+$httpGet[https://some-random-api.com/animal/$var[animal]]
+
+$if[$httpResult[fact]!=]
+$title[🐾 Random $toTitleCase[$var[animal]] Fact!]
+$image[$httpResult[image]]
+$description[$httpResult[fact]]
+$color[#2ECC71]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$else
+$title[❌ Failed to fetch]
+$description[Couldn’t get a fact about a $toTitleCase[$var[animal]]. Try again later.]
+$color[#E74C3C]
+$endif
+
+$suppressErrors

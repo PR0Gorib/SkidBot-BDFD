@@ -1,0 +1,44 @@
+$c[
+--- Command Info ---
+Get details about any movie or series
+Scripting Language: BDScript 2
+Triggers: !s imdb 
+]
+
+$nomention  
+$onlyIf[$noMentionMessage!=;❌ Please provide a movie or series name. Example: `!s imdb Titanic`]  
+$httpGet[https://api.popcat.xyz/v2/imdb?q=$replaceText[$noMentionMessage; ;+]]  
+  
+$if[$httpResult[error]!=true]  
+$title[🎬 $httpResult[message;title] ($httpResult[message;year])]  
+$description[
+**__Plot Summary__**  
+$httpResult[message;plot]  
+  
+**🏷️ Genres:** $httpResult[message;genres]  
+**🌟 Rating:** $httpResult[message;rating]/10  
+**🧠 Metascore:** $httpResult[message;metascore]  
+**🎖️ Awards:** $httpResult[message;awards]  
+**💰 Box Office:** $httpResult[message;boxoffice]  
+**🕒 Runtime:** $httpResult[message;runtime]  
+**🎭 Type:** $httpResult[message;type]  
+**📆 Released:** $httpResult[message;released]  
+**🎬 Director(s):** $httpResult[message;director]  
+**🎥 Actors:** $httpResult[message;actors]  
+**🌍 Country:** $httpResult[message;country]  
+**🌐 Languages:** $httpResult[message;languages]  
+**🔗 IMDb Page:** $httpResult[message;imdburl]  
+]  
+$image[$httpResult[message;poster]]  
+$color[#ffc107]  
+$footer[$username]  
+$footerIcon[$authorAvatar]  
+$addTimestamp  
+
+$else  
+$title[❌ Movie Not Found]  
+$description[IMDb couldn't find that title. Try using the full name or a more specific title.]  
+$color[#ff0000]  
+$endif  
+
+$suppressErrors[❌ Failed to fetch data. Please try again later.]

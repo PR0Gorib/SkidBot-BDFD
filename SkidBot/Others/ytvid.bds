@@ -1,0 +1,37 @@
+$c[
+--- Command Info ---
+Fetch YouTube video details
+Scripting Language: BDScript 2
+Trigger: !s ytvid
+]
+
+$nomention
+$onlyIf[$guildID!=;]
+$reply
+$allowUserMentions[]
+$suppressErrors[Error Occurred, Make Sure That You Have Entered The Video Name Not The Link!]
+
+$httpGet[https://apiv2.spapi.ga/fun/ytvinfo?search=$noMentionMessage]
+$description[**__Video Name__**
+
+[$httpResult[title]\]($httpResult[url])
+
+**__Views__**
+
+$httpResult[views;short]
+
+**__UPLOADED BY__**
+
+$httpResult[owner;name]
+
+**__Uploaded On__**
+
+$httpResult[publishedtime]
+
+**__Video Duration__**
+
+$httpResult[duration;long]]
+
+$image[$httpResult[thumbnails;0;url]]
+$color[ff0000]
+$addButton[no;$httpResult[url];Click Me To Open The Video;link;no;]

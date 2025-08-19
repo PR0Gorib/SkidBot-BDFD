@@ -1,0 +1,48 @@
+$c[
+--- Command Info ---
+Fetch YouTube channel info
+Scripting Language: BDScript 2
+Trigger: !s yt
+]
+
+$nomention
+$argsCheck[>1;<@$authorID> `!s yt (username)`]
+$httpGet[https://api.spapi.ga/fun/ytchannel?channel=$replaceText[$message; ;+;-1]]
+ 
+$title[YouTube INFO]
+$addField[Author:;
+```
+$httpResult[author]
+```]
+$addField[Author URL:;
+$httpResult[authorUrl]
+]
+$addField[Subscribers:;
+```py
+$httpResult[subs_text]
+```]
+$addField[Description:;
+```fix
+$httpResult[description]
+```]
+$addField[Family Friendly:;
+```
+$if[$httpResult[familyFriendly]==false]
+No
+$else
+Yes
+$endif
+```]
+$addField[Verified:;
+```
+$if[$httpResult[verified]==false]
+No
+$else
+Yes
+$endif
+```]
+$thumbnail[$httpResult[authorIcon]]
+$image[$httpResult[authorbanner]]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$footer[$username#$discriminator[$authorID]]

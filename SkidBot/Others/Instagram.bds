@@ -1,0 +1,24 @@
+$c[
+--- Command Info ---
+Fetch Instagram profile info
+Scripting Language: BDScript 2
+Trigger: !s ig
+]
+
+$nomention
+$botTyping
+$description[$httpResult[`biography`]]
+$title[$httpResult[username]]
+$thumbnail[$httpResult[profile_pic]]
+$addField[Verified;$replaceText[$replaceText[$httpResult[verified];true;✅;1];false;❌;1];yes]
+$addField[Private;$replaceText[$replaceText[$httpResult[private];true;✅;1];false;❌;1];yes]
+$addField[Posts;$httpResult[posts];yes]
+$addField[Following;$numberSeparator[$replaceText[$httpResult[following];.000000;;1]];yes]
+$addField[Followers;$numberSeparator[$replaceText[$httpResult[followers];.000000;;1]];yes]
+$suppressErrors[No results show.]
+$color[00feff]
+$footer[$username#$discriminator[$authorID]]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$httpGet[https://api.popcatdev.repl.co/instagram?user=$message]
+$argsCheck[1;Please provide a username.] 

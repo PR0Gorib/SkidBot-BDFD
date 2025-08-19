@@ -1,0 +1,36 @@
+$c[
+--- Command Info ---
+Get a random joke
+Scripting Language: BDScript 2
+Trigger: !s joke
+]
+
+$nomention
+$var[api;$randomText[jokeapi;popcat]]
+
+$if[$var[api]==jokeapi]
+$httpGet[https://v2.jokeapi.dev/joke/Miscellaneous,Dark,Pun,Spooky,Christmas]
+
+$if[$httpResult[type]==twopart]
+$title[🤣 Here's a Joke!]
+$description[$httpResult[setup]
+**➤** $httpResult[delivery]]
+$color[#00cc99]
+
+$elseif[$httpResult[type]==single]
+$title[😂 Here's another one!]
+$description[$httpResult[joke]]
+$color[#f39c12]
+$endif
+
+$elseif[$var[api]==popcat]
+$httpGet[https://api.popcat.xyz/v2/joke]
+$title[😹 Random Joke]
+$description[$httpResult[message;joke]]
+$color[#ff66cc]
+$endif
+
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$suppressErrors

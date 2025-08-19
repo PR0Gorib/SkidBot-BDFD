@@ -1,0 +1,18 @@
+$c[
+--- Command Info ---
+Get your random NSFW waifu
+Scripting Language: BDScript 2
+Triggers: !s nsfw waifu
+]
+
+$nomention
+$onlyIf[$isNSFW[$channelID]==true;❌ NSFW content can only be used in NSFW channels!]
+
+$httpGet[https://api.waifu.pics/nsfw/waifu]
+$title[🔞 Here's a Waifu for you!]
+$description[**Type:** `$randomText[feet;hentai;anal;trap;h3some;yuri;gonewild;pgif;4k;boobs;ass;pussy;hass;hmidriff;hneko;waifu;hkitsune;hanal;thigh;hthigh;hboobs;paizuri;hblowjob;blowjob]`]
+$image[$httpResult[url]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$color[#e91e63]

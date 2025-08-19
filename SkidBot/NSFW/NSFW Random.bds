@@ -1,0 +1,48 @@
+$c[
+--- Command Info ---
+Random NSFW Images
+Scripting Language: BDScript 2
+Triggers: !s nsfw random
+]
+
+$nomention
+$onlyIf[$isNSFW[$channelID]==true;❌ NSFW content can only be used in NSFW channels!]
+
+$var[api;$randomText[nekobot;waifu;purro]]
+
+$if[$var[api]==nekobot]
+$httpGet[https://nekobot.xyz/api/image?type=$randomText[feet;hentai;anal;gonewild;pgif;4k;boobs;ass;pussy;hass;hmidriff;hneko;hkitsune;hanal;thigh;hthigh;hboobs;paizuri;blowjob;tentacle]]
+$title[🔞 Straight from SkidBot’s collection 📦]
+$image[$httpResult[message]]
+$description[$randomText[**SkidBot:** “Premium sauce 🔥”;**SkidBot:** “Waifu > Real life”;**SkidBot:** “Judge me later.”;**SkidBot:** “I swear this is art.”;**SkidBot:** “Don’t tell my dev I sent this 👀]]
+
+$elseif[$var[api]==waifu]
+$httpGet[https://api.waifu.pics/nsfw/$randomText[waifu;blowjob;neko;trap]]
+$title[🔞 SkidBot found this... kinda sus.]
+$image[$httpResult[url]]
+$description[$randomText[**SkidBot:** “Therapist said this isn’t normal.”;**SkidBot:** “Sorry… but not really.”;**SkidBot:** “You asked for it.”;**SkidBot:** “Horny? Blame Developer.”;**SkidBot:** “I’m not proud of this... but here 👇”]]
+
+$elseif[$var[api]==purro]
+$httpGet[$randomText[
+https://api.purrbot.site/v2/img/nsfw/threesome_fff/gif;
+https://api.purrbot.site/v2/img/nsfw/threesome_ffm/gif;
+https://api.purrbot.site/v2/img/nsfw/threesome_mmf/gif;
+https://api.purrbot.site/v2/img/nsfw/anal/gif;
+https://api.purrbot.site/v2/img/nsfw/blowjob/gif;
+https://api.purrbot.site/v2/img/nsfw/fuck/gif;
+https://api.purrbot.site/v2/img/nsfw/cum/gif;
+https://api.purrbot.site/v2/img/nsfw/neko/gif;
+https://api.purrbot.site/v2/img/nsfw/pussylick/gif;
+https://api.purrbot.site/v2/img/nsfw/solo/gif;
+https://api.purrbot.site/v2/img/nsfw/yuri/gif
+]]
+$title[🔞 SkidBot found this... again.]
+$image[$httpResult[link]]
+$description[$randomText[**SkidBot:** “No regrets.”;**SkidBot:** “Caught in 4K again.”;**SkidBot:** “This isn’t what it looks like 😳”;**SkidBot:** “My FBI agent quit.”;**SkidBot:** “You saw nothing. NOTHING.”]]
+$endif
+
+$color[$randomText[#e91e63;#ff2e63]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$addTimestamp
+$suppressErrors

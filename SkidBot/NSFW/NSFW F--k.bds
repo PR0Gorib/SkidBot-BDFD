@@ -1,0 +1,42 @@
+$c[
+--- Command Info ---
+F--k some*one
+Scripting Language: BDScript 2
+Triggers: !s nsfw fuck
+]
+
+$nomention
+$onlyIf[$mentioned[1]!=;❌ Mention someone to f**k. 💀]
+$onlyIf[$isNSFW[$channelID]==true;❌ NSFW content can only be used in NSFW channels!]
+$cooldown[3s;🕚 You can do that again in **%time%**]
+
+$var[action;$randomText[fuck;cum]]
+$httpGet[https://api.purrbot.site/v2/img/nsfw/$var[action]/gif]
+
+$if[$var[action]==fuck]
+$description[$randomText[
+<@$authorID> just f**ked <@$mentioned[1]> real hard 💥;
+<@$mentioned[1]> got totally wrecked by <@$authorID> 😳;
+Well damn <@$authorID>… you didn’t hold back on <@$mentioned[1]> 😩;
+<@$authorID> went full degenerate mode with <@$mentioned[1]> 💦;
+That was intense… <@$authorID> just f***ed <@$mentioned[1]> into another dimension 😵‍💫]]
+$endif
+
+$if[$var[action]==cum]
+$description[$randomText[
+<@$authorID> came all over <@$mentioned[1]> 💦;
+That was messy... <@$mentioned[1]> is covered thanks to <@$authorID> 😳;
+<@$authorID> finished on <@$mentioned[1]> 👀;
+<@$mentioned[1]> just got blessed (?) by <@$authorID> 😬;
+<@$authorID> didn’t even say sorry after cumming on <@$mentioned[1]> 😭]]
+$endif
+
+$image[$httpResult[link]]
+$footer[$username]
+$footerIcon[$authorAvatar]
+$color[$randomText[FF1493;FF4500;FF69B4;DC143C;FF2E63]]
+$addTimestamp
+
+$if[$mentioned[1]==$authorID]
+Bro… you’re down BAD 💀
+$endif

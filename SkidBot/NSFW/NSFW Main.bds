@@ -1,0 +1,52 @@
+$c[
+--- Command Info ---
+NSFW Main 
+Scripting Language: BDScript 2
+Triggers: !s nsfw
+]
+
+$nomention
+$onlyIf[$isNSFW[$channelID]==true;❌ NSFW content can only be used in NSFW channels!]
+$onlyIf[$message[1]!=;❌ Please provide a category. Example: `!s nsfw waifu`]
+
+$httpGet[https://nekobot.xyz/api/image?type=$message[1]]
+$onlyIf[$checkContains[$toLowercase[$message[1]];random;yaoi;hanal;hneko]==false;]
+$if[$httpResult[message]!=Unknown Image Type]
+  $title[🔞 Here's something spicy...]
+  $image[$httpResult[message]]
+  $description[**Type:** `$randomText[feet;hentai;anal;trap;h3some;yuri;gonewild;pgif;4k;boobs;ass;pussy;hass;hmidriff;hneko;waifu;hkitsune;hanal;thigh;hthigh;hboobs;paizuri;hblowjob;blowjob]`]
+  $color[#e91e63]
+  $footer[$username]
+  $footerIcon[$authorAvatar]
+  $addTimestamp
+  $stop
+$endif
+
+$httpGet[https://api.waifu.pics/nsfw/$message[1]]
+$onlyIf[$checkContains[$toLowercase[$message[1]];waifu;random]==false;]
+$if[$httpResult[url]!=]
+  $title[🔞 Here's something spicy...]
+  $image[$httpResult[url]]
+  $description[**Type:** `$randomText[feet;hentai;anal;trap;h3some;yuri;gonewild;pgif;4k;boobs;ass;pussy;hass;hmidriff;hneko;waifu;hkitsune;hanal;thigh;hthigh;hboobs;paizuri;hblowjob;blowjob]`]
+  $color[#ff2e63]
+  $footer[$username]
+  $footerIcon[$authorAvatar]
+  $addTimestamp
+  $stop
+$endif
+
+$httpGet[https://api.purrbot.site/v2/img/nsfw/$message[1]/gif]
+$onlyIf[$checkContains[$toLowercase[$message[1]];help;random;neko;yuri;info;yaoi;hanal;fuck;hblowjob;h3some]==false;]
+$if[$httpResult[link]!=]
+  $title[🔞 Here's something spicy...]
+  $image[$httpResult[link]]
+  $description[**Type:** `$randomText[feet;hentai;anal;trap;h3some;yuri;gonewild;pgif;4k;boobs;ass;pussy;hass;hmidriff;hneko;waifu;hkitsune;hanal;thigh;hthigh;hboobs;paizuri;hblowjob;blowjob]`]
+  $color[#9b59b6]
+  $footer[$username]
+  $footerIcon[$authorAvatar]
+  $addTimestamp
+  $stop
+$endif
+
+$description[❌ Couldn't find anything for `$message[1]` or it's not added.]
+$color[#ff0000]
